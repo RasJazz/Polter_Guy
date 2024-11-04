@@ -37,6 +37,7 @@ public class Interactor : MonoBehaviour
         }
         else
         {
+            // Sets interactible back to null and closes Interaction UI
             if (_interactible != null) _interactible = null;
             if(_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
         }
