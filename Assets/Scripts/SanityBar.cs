@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SanityBar : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
+    public Slider _slider;
 
     public void SetMaxSanity(int sanity)
     {
@@ -16,6 +16,12 @@ public class SanityBar : MonoBehaviour
 
     public void SetSanity(int sanity)
     {
-        _slider.value = sanity;
+        _slider.value += sanity;
+        Debug.Log(_slider.value);
+        if (_slider.value == 0)
+        {
+            // Add in Scene Switcher here
+            Debug.Log("They've moved out");
+        }
     }
 }

@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vase : MonoBehaviour,IInteractible
+public class Vase : InteractibleItems
 {
-    [SerializeField] private string _prompt;
-    [SerializeField] private SpriteRenderer _changeSprite;
-    [SerializeField] private Sprite _deadFlowers;
-    //private Animation _animation;
-    public string InteractionPrompt => _prompt;
-
-    public bool Interact(Interactor interactor)
+    [SerializeField] private Animation _animation;
+    [SerializeField] private SanityBar _sanityBar;
+    [SerializeField] private int _sanityValue;
+    
+    public override bool Interact(Interactor interactor)
     {
-        //if (!_animation.isPlaying) _animation.Play();
-        _changeSprite.sprite = _deadFlowers;
+        // Decreases sanity and waits x amount of seconds to reset item
+        if (!_animation.isPlaying)
+        {
+            _sanityBar.SetSanity(_sanityValue);
+            _animation.Play();
+            StartCoroutine(WaitToReset(_animation));
+        }
+
         return true;
     }
 }

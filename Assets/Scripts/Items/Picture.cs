@@ -1,15 +1,24 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class Picture : MonoBehaviour, IInteractible
+public class Picture : InteractibleItems
 {
-    [SerializeField] private string _prompt;
     [SerializeField] private Animation _animation;
-    public string InteractionPrompt => _prompt;
+    [SerializeField] private SanityBar _sanityBar;
+    [SerializeField] private int _sanityValue;
 
-    public bool Interact(Interactor interactor)
+    public override bool Interact(Interactor interactor)
     {
-        if (!_animation.isPlaying) _animation.Play();
+        if (!_animation.isPlaying)
+        {
+            _sanityBar.SetSanity(_sanityValue);
+            _animation.Play();
+            StartCoroutine(WaitToReset(_animation));
+        }
+
         return true;
     }
 }

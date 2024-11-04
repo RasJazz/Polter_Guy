@@ -122,9 +122,9 @@ GameObject:
   - component: {fileID: 5890056388848397400}
   - component: {fileID: 8716535681141082011}
   - component: {fileID: 3202486613025448768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionPoint: {fileID: 2789067635860565193}
-  _interactionPointRadius: 0.94
+  _interactionPointRadius: 1.03
   _interactableMask:
     serializedVersion: 2
     m_Bits: 64
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1173331717282468586}
   - component: {fileID: 2485707983984563028}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Interaction Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

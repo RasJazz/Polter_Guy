@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 447786673102335255}
   - component: {fileID: 2148786556455691806}
   - component: {fileID: 3708661461744901919}
+  - component: {fileID: 8962069906079123087}
   m_Layer: 6
   m_Name: chair top
   m_TagString: Untagged
@@ -119,3 +120,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1907e4212e0fcfc45a2c9c3738c92558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &8962069906079123087
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095351449167813670}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: adc673605ea64614c8d7894b91887647, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: adc673605ea64614c8d7894b91887647, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

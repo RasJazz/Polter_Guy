@@ -8,14 +8,16 @@ public class MoveTo : MonoBehaviour
     public Transform[] points;
     private int _destPoint = 0;
     private NavMeshAgent _agent;
-    // Start is called before the first frame update
+   
     void Start()
     {
+        // Initialize agent and sets patrolling parameters
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateUpAxis = false;
         _agent.updateRotation = false;
         _agent.autoBraking = false;
 
+        // Starts patrol
         GoToNextPoint();
     }
 

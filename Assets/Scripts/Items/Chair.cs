@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chair : MonoBehaviour,IInteractible
+public class Chair : InteractibleItems
 {
-    [SerializeField] private string _prompt;
-    public string InteractionPrompt => _prompt;
-    
-    public bool Interact(Interactor interactor)
+    [SerializeField] private Animation _animation;
+    [SerializeField] private SanityBar _sanityBar;
+    [SerializeField] private int _sanityValue;
+
+    public override bool Interact(Interactor interactor)
     {
-        // Tip chair over
-        transform.rotation = Quaternion.Euler(0, 0, -90);
-        Debug.Log(_prompt);
+        if (!_animation.isPlaying)
+        {
+            _sanityBar.SetSanity(_sanityValue);
+            _animation.Play();
+            StartCoroutine(WaitToReset(_animation));
+        }
+
         return true;
     }
 }
