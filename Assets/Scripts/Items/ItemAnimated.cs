@@ -9,7 +9,7 @@ public class ItemAnimated : InteractibleItems
     [SerializeField] private SanityBar _sanityBar;
     [SerializeField] private int _sanityValue;
 
-    public override bool Interact(Interactor interactor)
+    public override void Interact()
     {
         // Decreases sanity and waits x amount of seconds to reset item
         if (!_animation.isPlaying)
@@ -18,7 +18,6 @@ public class ItemAnimated : InteractibleItems
             _animation.Play();
             StartCoroutine(WaitToReset(_animation));
         }
-
-        return true;
+        
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - kettle
+  - Sprite2
   layers:
   - Default
   - TransparentFX

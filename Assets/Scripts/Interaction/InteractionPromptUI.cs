@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InteractionPromptUI : MonoBehaviour
 {
@@ -10,17 +11,19 @@ public class InteractionPromptUI : MonoBehaviour
         _uiPanel.SetActive(false);
     }
 
-    public bool IsDisplayed = false;
+    public bool isDisplayed;
 
     public void SetUp()
     {
+        // Setting Interaction Button UI to display
         _uiPanel.SetActive(true);
-        IsDisplayed = true;
+        isDisplayed = true;
     }
 
     public void Close()
     {
+        // Close Interaction Button UI
         _uiPanel.SetActive(false);
-        IsDisplayed = false;
+        isDisplayed = false;
     }
 }

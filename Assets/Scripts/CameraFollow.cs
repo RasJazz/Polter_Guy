@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public Vector3 offset;
 
-    // Update is called once per frame
+    // Follow player on map
     void Update()
     {
         transform.position = target.position + offset;

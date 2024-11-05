@@ -10,16 +10,16 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
     private readonly Collider[] _colliders = new Collider[3];
     
-    
     private IInteractible _interactible;
     private SanityBar _sanity;
 
     private void Update()
     {
+        // Checks for items in vicinity
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders,
             _interactableMask);
-
-        // NESTED MESS OF IF STATEMENTS T.T T.T
+        
+        // If items are found, makes first found as interactible
         if (_numFound > 0)
         {
             _interactible = _colliders[0].GetComponent<IInteractible>();
@@ -27,11 +27,11 @@ public class Interactor : MonoBehaviour
             if (_interactible != null)
             {
                 // Displays Interaction UI
-                if(!_interactionPromptUI.IsDisplayed) _interactionPromptUI.SetUp();
+                if(!_interactionPromptUI.isDisplayed) _interactionPromptUI.SetUp();
                 // If user is pressing E, do action on item
                 if (Input.GetKey(KeyCode.E))
                 {
-                    _interactible.Interact(this);
+                    _interactible.Interact();
                 }
             }
         }
@@ -39,7 +39,7 @@ public class Interactor : MonoBehaviour
         {
             // Sets interactible back to null and closes Interaction UI
             if (_interactible != null) _interactible = null;
-            if(_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
+            if(_interactionPromptUI.isDisplayed) _interactionPromptUI.Close();
         }
     }
 

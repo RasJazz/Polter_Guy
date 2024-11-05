@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SanityBar : MonoBehaviour
@@ -10,10 +7,12 @@ public class SanityBar : MonoBehaviour
 
     public void SetMaxSanity(int sanity)
     {
+        // Set sanity max level
         _slider.maxValue = sanity;
         _slider.value = sanity;
     }
 
+    // Function to control sanity bar
     public void SetSanity(int sanity)
     {
         _slider.value += sanity;

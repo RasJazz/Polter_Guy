@@ -15,10 +15,10 @@ public class FamilyMember : MonoBehaviour
     
     void Start()
     {
+        // Sets max sanity levels and looks for Player GO
         _currentSanity = _maxSanity;
         _sanityBar.SetMaxSanity(_maxSanity);
-        _player = GameObject.FindGameObjectWithTag("Player")?.transform; // Assumes the player has the tag "Player"
-        Debug.Log(_player);
+        _player = GameObject.FindGameObjectWithTag("Player")?.transform; 
     }
 
     void Update()
@@ -32,7 +32,9 @@ public class FamilyMember : MonoBehaviour
     private void DetectPlayer()
     {
         // Check if the player is within sight range
-        float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, transform.position.y), new Vector2(_player.position.x, _player.position.y));
+        float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, transform.position.y), 
+            new Vector2(_player.position.x, _player.position.y));
+        
         if (distanceToPlayer <= _sightRange)
         {
             // Cast a ray to check for line of sight
@@ -82,7 +84,8 @@ public class FamilyMember : MonoBehaviour
     private IEnumerator IncreaseSanityOverTime()
     {
         float elapsedTime = 0f;
-
+        
+        // Detects if player stays in sight for x amount of seconds
         while (elapsedTime < _sightDuration)
         {
             if (_isPlayerInVision)
@@ -92,7 +95,7 @@ public class FamilyMember : MonoBehaviour
             yield return null;
         }
         
-        Debug.Log(elapsedTime);
+        // If player is within sight during allotted time, adds Sanity to sanity bar
         _sanityBar.SetSanity(_sanityIncreaseValue);
     }
     
