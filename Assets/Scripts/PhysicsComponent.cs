@@ -14,6 +14,6 @@ public class PhysicsComponent : MonoBehaviour
     // Update is called once per frame
     public void MoveEntity(Vector3 direction, float speed)
     {
-        _entityRb.velocity =direction * speed;
+        _entityRb.velocity = direction * speed;
     }
 }

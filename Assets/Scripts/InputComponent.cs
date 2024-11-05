@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    private readonly Vector3[] _directions = { Vector3.left, Vector3.up, Vector3.right, Vector3.down };
+    private readonly Vector3[] _directions = { Vector3.left, Vector3.forward, Vector3.right, Vector3.back };
     private readonly KeyCode[] _keys = { KeyCode.A, KeyCode.W, KeyCode.D, KeyCode.S };
     private int _movementDir;
     

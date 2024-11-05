@@ -10,20 +10,24 @@ public class SceneLoader : MonoBehaviour
         Start,
         Kitchen,
         Study,
-        Bedroom
+        //Bedroom
     }
     public static void OnPlayButton()
     {
         SceneManager.LoadScene((int)Scenes.Kitchen);
     }
 
+    public static void OnMainMenuButton()
+    {
+        SceneManager.LoadScene((int)Scenes.Start);
+    }
+    
     public static void OnNextLevelButton()
     {
-        if (SceneManager.GetActiveScene().name == Scenes.Study.ToString())
-        {
-            SceneManager.LoadScene((int)Scenes.Bedroom);
-        }
-        else
+        string currentScene = SceneManager.GetActiveScene().name;
+        
+        Debug.Log(currentScene);
+        if (currentScene == "Kitchen")
         {
             SceneManager.LoadScene((int)Scenes.Study);
         }

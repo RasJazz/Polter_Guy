@@ -7,18 +7,33 @@ public class MoveTo : MonoBehaviour
 {
     public Transform[] points;
     private int _destPoint = 0;
-    private NavMeshAgent _agent;
+    [SerializeField] private NavMeshAgent _agent;
    
     void Start()
     {
         // Initialize agent and sets patrolling parameters
-        _agent = GetComponent<NavMeshAgent>();
         _agent.updateUpAxis = false;
         _agent.updateRotation = false;
         _agent.autoBraking = false;
+        
+        // Check if the agent is enabled and on the NavMesh before starting patrol
+        if (_agent.enabled)
+        {
+            Vector3 startPosition = transform.position;
+            NavMeshHit hit;
 
-        // Starts patrol
-        GoToNextPoint();
+            // Snap to NavMesh if necessary
+            if (NavMesh.SamplePosition(startPosition, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                transform.position = hit.position; // Snap to NavMesh
+                // Starts patrol
+                GoToNextPoint();
+            }
+            else
+            {
+                Debug.LogWarning("Agent is not on NavMesh! Check position or baking.");
+            }
+        }
     }
 
     private void GoToNextPoint()

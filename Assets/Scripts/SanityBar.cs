@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class SanityBar : MonoBehaviour
 {
+    [SerializeField] private GameObject _levelEnd;
+    [SerializeField] private GameObject _entity;
     public Slider _slider;
 
     public void SetMaxSanity(int sanity)
@@ -19,8 +21,10 @@ public class SanityBar : MonoBehaviour
         Debug.Log(_slider.value);
         if (_slider.value == 0)
         {
-            // Add in Scene Switcher here
-            Debug.Log("They've moved out");
+            _entity.SetActive(false);
+            // Brings up end level and switches scenes
+            _levelEnd.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }
