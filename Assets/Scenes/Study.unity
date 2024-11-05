@@ -2237,7 +2237,7 @@ PrefabInstance:
       objectReference: {fileID: 1895138095}
     - target: {fileID: 8565508404232699371, guid: 28bc58c2fb624f44c867a81fab988e06, type: 3}
       propertyPath: _sanityValue
-      value: -300
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8571648220957210652, guid: 28bc58c2fb624f44c867a81fab988e06, type: 3}
       propertyPath: m_Size.y

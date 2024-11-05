@@ -23,9 +23,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void PlaySFX(string name)
+    public void PlaySFX()
     {
-        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        int randomIndex = UnityEngine.Random.Range(0, sfxSounds.Length);
+        Sound s = sfxSounds[randomIndex];
 
         if (s == null)
         {

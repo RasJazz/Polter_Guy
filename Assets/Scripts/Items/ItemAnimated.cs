@@ -8,6 +8,7 @@ public class ItemAnimated : InteractibleItems
     [SerializeField] private Animation _animation;
     [SerializeField] private SanityBar _sanityBar;
     [SerializeField] private int _sanityValue;
+    
 
     public override void Interact()
     {
@@ -18,6 +19,7 @@ public class ItemAnimated : InteractibleItems
             _animation.Play();
             StartCoroutine(WaitToReset(_animation));
         }
-        
+
+        AudioManager.Instance.PlaySFX();
     }
 }
