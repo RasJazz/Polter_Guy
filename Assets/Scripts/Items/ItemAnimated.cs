@@ -19,7 +19,8 @@ public class ItemAnimated : InteractibleItems
             _animation.Play();
             StartCoroutine(WaitToReset(_animation));
         }
-
+        
+        // Play audio
         AudioManager.Instance.PlaySFX();
     }
 }

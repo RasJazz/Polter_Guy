@@ -11,12 +11,15 @@ public class ItemSpriteShow : InteractibleItems
     
     public override void Interact()
     {
+        // Decreases sanity and waits x amount of seconds to switch sprite
         if (isInteracting) return;
 
         isInteracting = true;
         _sanityBar.SetSanity(_sanityValue);
         _secondSprite.SetActive(true);
         StartCoroutine(WaitForTimer(_secondSprite, this));
+        // Play audio
+        AudioManager.Instance.PlaySFX();
     }
     
     public void ResetInteraction()
